@@ -1,0 +1,61 @@
+#/******* -------- SI SE VA EL ENTORNO VIRTUAL -------- *******/#
+                .venv\Scripts\activate
+
+Documentación del proyecto, solo se sube un archivo de cada elemento y si hay modificación se documenta.
+Reef de los programas:
+
+***************************INTERFAZ***************************
+
+├── componentes/
+│   ├── __init__.py
+│   ├── panel_alertas.py            # Panel de alertas reutilizable
+│   ├── panel_camaras.py            # Panel de cámaras
+│   └── slider_filtro.py            # Slider personalizado de filtros
+├── utils/
+│   ├── __init__.py
+│   └── constantes.py               # Colores, textos, configuraciones
+├── controlador.py                  # Coordinador entre modelo y vista
+├── main.py                         # Punto de entrada principal             ◀◀◀◀◀◀
+├── modelo.py                       # Lógica de negocio
+└── vista.py                        # Interfaz gráfica
+
+************************MODELO DE YOLO************************
+├── training/
+│   ├── bottles-1/
+│   ├── Hands-1/
+│   ├── People-Detection-1/
+│   ├── importar.py                 # Descarga de modelos de YOLO en caso de no existir uno o ninguno eso crea automaticamente las carpetas
+│   ├── combinar.py                 # Combina todos los datasets en un solo modelo, asi mismo crea su carpeta correspondiente
+
+*********************SISTEMA DE DETECCION*********************
+
+proto1.py                  # Tu sistema de detección
+
+
+***********************CONSIDERACIONES************************
+Verificar la existencia de las carpetas referentes a las clases, botellas, manos y persona
+----YA SEA QUE EXISTAN O SE DESCARGUEN----
+Y que su estructura sea respectivamente:
+
+├── training/
+│   ├── bottles-1/
+│   │   ├── test/
+│   │   ├── train/
+│   │   ├── valid/
+│   │   ├── data.yaml               # Archivo de configuración yolo para machine learning
+│   │   ├── README.dataset.txt
+│   │   └── README.roboflow.txt
+│   ├── Hands-1/
+|   |   ├── test/
+│   │   ├── train/
+│   │   ├── valid/
+│   │   ├── data.yaml               # Archivo de configuración yolo para machine learning
+│   │   ├── README.dataset.txt
+│   │   └── README.roboflow.txt
+│   ├── People-Detection-1/
+|   |   ├── test/
+│   │   ├── train/
+│   │   ├── valid/
+│   │   ├── data.yaml               # Archivo de configuración yolo para machine learning
+│   │   ├── README.dataset.txt
+└── └── └── README.roboflow.txt
