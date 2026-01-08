@@ -264,22 +264,24 @@ class SistemaSeguridadControlador:
             # Mostrar en vista
             self.root.after(0, self.vista.agregar_alerta, alerta)
             
-            print(f"🚨 ALERTA: {tipo_alerta} en Cámara {int(id_camara)+1} ({confianza:.1f}%)")
+            print(f"ALERTA: {tipo_alerta} en cámara {int(id_camara)+1} ({confianza:.1f}%)")
 
     def _mapear_tipo_alerta(self, tipo_deteccion):
         """Mapea el tipo de detección a tipo de alerta"""
         tipo_lower = tipo_deteccion.lower()
         
-        if 'sosteniendo' in tipo_lower or 'holding' in tipo_lower:
-            return "Sosteniendo mercancía"
-        elif 'sospechoso' in tipo_lower or 'suspicious' in tipo_lower:
-            return "Comportamiento sospechoso"
-        elif 'escondiendo' in tipo_lower or 'hiding' in tipo_lower:
-            return "Escondiendo mercancía"
+        if 'permanencia' in tipo_lower or 'permanence' in tipo_lower:
+            return "Permanencia sospechosa"
+        elif 'interaccion' in tipo_lower or 'interaction' in tipo_lower:
+            return "Interacción con el vehiculo"
+        elif 'luminosa' in tipo_lower or 'luminous' in tipo_lower:
+            return "Vehiculo sin actividad luminosa"
         elif 'robo' in tipo_lower or 'theft' in tipo_lower or 'stealing' in tipo_lower:
-            return "Posible robo"
+            return "Posible robo de autopartes"
+        elif 'arma' in tipo_lower or 'theft' in tipo_lower:
+            return "Persona portando arma"
         else:
-            return "Comportamiento sospechoso"
+            return "Permanencia sospechosa"
 
     def _puede_generar_alerta(self, id_camara, tipo_alerta):
         """Verifica si puede generar una alerta (sistema de cooldown)"""

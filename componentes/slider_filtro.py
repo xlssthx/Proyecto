@@ -74,11 +74,10 @@ class SliderFiltro:
         
         # Configuración
         colores = list(COLORES_FILTRO.values())
-        labels = ["Todas", "Tipo 1", "Tipo 2", "Tipo 3", "Tipo 4"]
+        labels = ["Todas", "Tipo 1", "Tipo 2", "Tipo 3", "Tipo 4", "Tipo 5"]
         ancho_total = 480
         inicio_x = 20
-        ancho_seccion = ancho_total / 5
-        
+        ancho_seccion = ancho_total / 6
         # Línea de fondo
         self.canvas.create_rectangle(
             inicio_x, 18, inicio_x + ancho_total, 22,
@@ -88,7 +87,7 @@ class SliderFiltro:
         )
         
         # Marcadores de posición
-        for i in range(5):
+        for i in range(6):
             x = inicio_x + (i * ancho_seccion) + (ancho_seccion / 2)
             
             # Círculo marcador
@@ -148,10 +147,10 @@ class SliderFiltro:
     def _calcular_indice(self, x):
         """Calcula el índice del filtro basado en la posición X"""
         inicio_x = 20
-        ancho_seccion = 480 / 5
+        ancho_seccion = 480 / 6
         
         if inicio_x <= x <= inicio_x + 480:
-            return max(0, min(4, int((x - inicio_x) / ancho_seccion)))
+            return max(0, min(5, int((x - inicio_x) / ancho_seccion)))
         return self.filtro_index
 
     def _on_click(self, event):

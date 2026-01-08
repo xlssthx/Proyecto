@@ -1,4 +1,4 @@
 """
-Utilidades del sistema SIVISEC
+Utilidades del sistema
 """
 from .constantes import *
